@@ -1,6 +1,7 @@
 package pages;
 
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -21,27 +22,20 @@ public class SignInPage extends BasePage<SignInPage> {
     @FindBy(className = "login")
     private WebElement signInLink;
 
-    @FindBy(css = ".lost_password > a")
-    private WebElement forgotPasswordLink;
-
     @FindBy(className = "alert-danger")
-    private WebElement alertBarDanger;
+    private WebElement errorMessage;
 
     @FindBy(className = "alert-success")
     private WebElement alertBarSuccess;
-
-    @FindBy(css = "#form_forgotpassword > fieldset > p > button")
-    private WebElement retrievePasswordButton;
 
     @FindBy(className = "lnk_wishlist")
     private WebElement wishListButton;
 
 
-
-
     public SignInPage() {
         super("http://prestashop.qatestlab.com.ua/en/authentication?back=my-account");
     }
+
 
     @Override
     protected void isLoaded() throws Error {
@@ -52,12 +46,6 @@ public class SignInPage extends BasePage<SignInPage> {
         emailField.sendKeys(email);
         passwordField.sendKeys(password);
         getActions().click(signInButton);
-    }
-
-    public void forgotPasswordWithEmail(String email) {
-        getActions().click(forgotPasswordLink);
-        emailField.sendKeys(email);
-        getActions().click(retrievePasswordButton);
     }
 
 
@@ -74,8 +62,8 @@ public class SignInPage extends BasePage<SignInPage> {
         return getActions().isElementDisplayed(signOutLink);
     }
 
-    public boolean isAlertBarDangerDisplayed() {
-        return getActions().isElementDisplayed(alertBarDanger);
+    public boolean isErrorMessageDisplayed() {
+        return getActions().isElementDisplayed(errorMessage);
     }
 
     public boolean isAlertBarSuccessDisplayed() {
