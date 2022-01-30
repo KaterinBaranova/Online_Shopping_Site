@@ -13,7 +13,8 @@ public class SignInTest extends BaseTest {
 
     @Test
     public void signInPositiveTest() {
-        driver.findElement(By.className("login")).click();
+        //driver.findElement(By.className("login")).click();
+        signInPage.signInLink();
         signInPage.signInWithCredentials(LOGIN, PASSWORD);
         assertTrue(signInPage.isSignOutLinkDisplayed(), "Sign out link is displayed on the page");
     }

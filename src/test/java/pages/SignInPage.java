@@ -1,7 +1,5 @@
 package pages;
 
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -24,9 +22,6 @@ public class SignInPage extends BasePage<SignInPage> {
 
     @FindBy(className = "alert-danger")
     private WebElement errorMessage;
-
-    @FindBy(className = "alert-success")
-    private WebElement alertBarSuccess;
 
     @FindBy(className = "lnk_wishlist")
     private WebElement wishListButton;
@@ -54,6 +49,11 @@ public class SignInPage extends BasePage<SignInPage> {
 
     }
 
+    public void signInLink() {
+        getActions().click(signInLink);
+
+    }
+
     public boolean isSignInLinkDisplayed() {
         return getActions().isElementDisplayed(signInButton);
     }
@@ -64,10 +64,6 @@ public class SignInPage extends BasePage<SignInPage> {
 
     public boolean isErrorMessageDisplayed() {
         return getActions().isElementDisplayed(errorMessage);
-    }
-
-    public boolean isAlertBarSuccessDisplayed() {
-        return getActions().isElementDisplayed(alertBarSuccess);
     }
 
     public WishlistPage openWishListPage() {
