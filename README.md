@@ -2,7 +2,9 @@
 http://prestashop.qatestlab.com.ua/en/ is an end-end e-commerce website.
 
 Following tools were used in this framework:
-Maven, TestNG, Selenium WebDriver,Circle CI, Allure Reporting Framework,Log4j, All automation is done in Java.
+Maven, TestNG, Selenium WebDriver,Circle CI, Allure Reporting Framework,Log4j.
+
+All automation is done in Java.
 
 Checklist:
 Sign In:
