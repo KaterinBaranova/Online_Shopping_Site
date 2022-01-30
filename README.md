@@ -23,20 +23,29 @@ Verify that user is able to logout.
 WishList:
 
 Verify that user is able to create a wishlist.
+
 Verify that user is able to update the wishlist.
+
 Verify that user is able to delete the wishlist.
+
 Cart Hover:
+
 Verify that cart hover display the correct quantity of items in cart.
+
 Verify that user is able to remove items in cart in the cart hover.
 
 Item:
 
 Verify that user is able to add item to cart.
+
 Verify that user is able to add several items to cart.
+
 Verify that user is able to select item color
 
 Checkout:
 
 Verify that user is able to buy items from cart.
+
 Verify that user is able to change quantity of items in cart.
+
 Verify that user is able to remove items from cart
