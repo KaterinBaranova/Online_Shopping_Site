@@ -1,14 +1,9 @@
-/*
 package tests.testng;
 
-import io.qameta.allure.*;
-import io.qameta.allure.model.Link;
 import org.apache.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import org.testng.log4testng.Logger;
-import setup.*;
 
 public class TestListener implements ITestListener {
     private final static Logger logger = Logger.getLogger(TestListener.class);
@@ -16,18 +11,6 @@ public class TestListener implements ITestListener {
     @Override
     public synchronized void onStart(ITestContext context) {
         logger.info("Test Suite started!");
-    }
-
-    @Override
-    public synchronized void onFinish(ITestContext context) {
-        logger.info(("Test Suite is ending!"));
-        FrameworkProperties.writeProperties();
-    }
-
-    @Override
-    public synchronized void onTestStart(ITestResult result) {
-        logger.info((result.getMethod().getMethodName() + " started!"));
-        browserStackLinkGenerator();
     }
 
     @Override
@@ -49,11 +32,4 @@ public class TestListener implements ITestListener {
     public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
         logger.info(("onTestFailedButWithinSuccessPercentage for " + result.getMethod().getMethodName()));
     }
-
-    private void browserStackLinkGenerator() {
-        Allure.addLinks(new Link()
-                .setName("BrowserStack")
-                .setUrl("https://automate.browserstack.com/builds/f535bea9b4c4f1050bccd80507ab9b175b959d8a/sessions/" + DriverBase.get().getSession(DriverBase.get().getDriver())));
-    }
 }
-*/

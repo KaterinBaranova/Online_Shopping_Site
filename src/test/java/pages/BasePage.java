@@ -37,9 +37,6 @@ public abstract class BasePage <T extends LoadableComponent<T>> extends Loadable
              throw new Error(action.getCurrentUrl() + " is not loaded");
          }
      }
-         public void setDriver (WebDriver driver){
-             this.driver = driver;
 
-         }
 }
 

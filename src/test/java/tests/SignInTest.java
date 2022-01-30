@@ -1,5 +1,7 @@
 package tests;
 
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.SignInPage;
 
@@ -9,32 +11,35 @@ import static org.testng.Assert.assertTrue;
 public class SignInTest extends BaseTest {
 
 
-
     @Test
-    public void signIn() {
+    public void signInPositiveTest() {
+        driver.findElement(By.className("login")).click();
         signInPage.signInWithCredentials(LOGIN, PASSWORD);
         assertTrue(signInPage.isSignOutLinkDisplayed(), "Sign out link is displayed on the page");
     }
 
     @Test
-    public void forgotPassword() {
-        SignInPage signInPage = new SignInPage().get();
-        signInPage.forgotPasswordWithEmail(LOGIN);
-        assertTrue(signInPage.isAlertBarSuccessDisplayed(), "Success message was not displayed");
+    public void signInWithEmptyLoginTest() {
+        String expected_error_message= "An email address required.";
+        driver.findElement(By.className("login")).click();
+        signInPage.signInWithCredentials(" ", PASSWORD);
+        Assert.assertTrue(signInPage.isErrorMessageDisplayed(), expected_error_message);
+    }
+
+    @Test
+    public void signInWithEmptyPasswordTest() {
+        String expected_error_message= "Password is required.";
+        driver.findElement(By.className("login")).click();
+        signInPage.signInWithCredentials(LOGIN, " ");
+        Assert.assertTrue(signInPage.isErrorMessageDisplayed(), expected_error_message);
     }
 
     @Test
     public void signInWithInvalidCredentials() {
-        SignInPage signInPage = new SignInPage().get();
-        signInPage.signInWithCredentials("a3@grr.la", "a3@grr.la");
-        assertTrue(signInPage.isAlertBarDangerDisplayed(), "Error message was not displayed");
-    }
-
-    @Test
-    public void forgotPasswordWithInvalidCredentials() {
-        SignInPage signInPage = new SignInPage().get();
-        signInPage.forgotPasswordWithEmail("a3@grr.la");
-        assertTrue(signInPage.isAlertBarDangerDisplayed(), "Error message was not displayed");
+        String expected_error_message= "Authentication failed.";
+        driver.findElement(By.className("login")).click();
+        signInPage.signInWithCredentials("Katee1@test2.com", "Katee1@test2.com");
+        Assert.assertTrue(signInPage.isErrorMessageDisplayed(), expected_error_message);
     }
 
     @Test
