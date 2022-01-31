@@ -23,7 +23,7 @@ public class WishlistPage extends BasePage<WishlistPage> {
     private WebElement wishlistTable;
 
     WishlistPage() {
-        super("index.php?fc=module&module=blockwishlist&controller=mywishlist");
+        super("index.php?fc=module&module=/module/blockwishlist/mywishlist");
     }
 
     @Override

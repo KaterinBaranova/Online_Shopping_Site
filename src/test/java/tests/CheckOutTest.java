@@ -9,7 +9,7 @@ import static org.testng.Assert.assertTrue;
 
 public class CheckOutTest extends BaseTest {
     @Test
-    public void changeQuantityInCart() {
+    public void changeQuantityInCartTest() {
         ItemPage itemPage1 = new ItemPage().get();
         itemPage1.clickAddToCart();
         itemPage1.closeCartFrame();
@@ -25,7 +25,7 @@ public class CheckOutTest extends BaseTest {
     }
 
     @Test
-    public void removeLastItemFromCart() {
+    public void removeLastItemFromCartTest() {
         ItemPage itemPage = new ItemPage().get();
         itemPage.clickAddToCart();
         CheckOutPage checkOutPage = itemPage.clickCheckout();
@@ -34,7 +34,7 @@ public class CheckOutTest extends BaseTest {
     }
 
     @Test
-    public void buyItemsFromCart() {
+    public void buyItemsFromCartTest() {
         ItemPage itemPage = new ItemPage().get();
         itemPage.clickAddToCart();
         CheckOutPage checkOutPage = itemPage.clickCheckout();

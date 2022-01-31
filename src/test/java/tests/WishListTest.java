@@ -12,7 +12,7 @@ import static tests.BaseTest.*;
 
 public class WishListTest {
     @Test
-    public void createUpdateDeleteWishlist() {
+    public void createUpdateDeleteWishlistTest() {
         SignInPage signInPage = new SignInPage().get();
         signInPage.signInWithCredentials(LOGIN, PASSWORD);
 
