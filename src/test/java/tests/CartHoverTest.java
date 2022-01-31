@@ -10,7 +10,7 @@ import static org.testng.Assert.assertTrue;
 
 public class CartHoverTest extends BaseTest {
     @Test
-    public void checkCountInHover() {
+    public void checkCountInHoverTest() {
         ItemPage itemPage = new ItemPage().get();
         CartHoverPage cartHoverPage = new CartHoverPage();
         assertEquals(cartHoverPage.getCartHoverNumberInCart(), 0, "The number of items in the cart for a new user is more than zero");
@@ -19,7 +19,7 @@ public class CartHoverTest extends BaseTest {
     }
 
     @Test
-    public void removeItemFromHover() {
+    public void removeItemFromHoverTest() {
         ItemPage itemPage = new ItemPage("index.php?id_product=2&controller=product").get();
         itemPage.clickAddToCart();
         itemPage.closeCartFrame();
@@ -28,7 +28,7 @@ public class CartHoverTest extends BaseTest {
     }
 
     @Test
-    public void checkOut() {
+    public void checkOutFromHoverTest() {
         ItemPage itemPage = new ItemPage("index.php?id_product=2&controller=product").get();
         itemPage.clickAddToCart();
         itemPage.closeCartFrame();
