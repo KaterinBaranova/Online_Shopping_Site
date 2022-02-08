@@ -69,8 +69,8 @@ public class Action {
         return true;
     }
 
-    public boolean isElementTextChanged(WebElement element, String originalText) {
-        return isElementTextChanged(element, originalText, DEFAULT_TIMEOUT);
+    public void isElementTextChanged(WebElement element, String originalText) {
+        isElementTextChanged(element, originalText, DEFAULT_TIMEOUT);
     }
 
     void type(WebElement element, String text, Integer timeout) {

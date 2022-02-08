@@ -12,9 +12,10 @@ public abstract class BasePage <T extends LoadableComponent<T>> extends Loadable
     private final String pageUrl;
     public WebDriver driver;
 
-    BasePage(String pageUrl) {
+    BasePage(WebDriver driver, String pageUrl) {
+        this.driver = driver;
         this.pageUrl = pageUrl;
-        this.action = new Action(driver);
+        this.action = new Action(this.driver);
         PageFactory.initElements(this.driver, this);
     }
 
@@ -38,5 +39,10 @@ public abstract class BasePage <T extends LoadableComponent<T>> extends Loadable
          }
      }
 
+    public abstract void open();
+
+    public abstract void login(String login, String password);
+
+    public abstract boolean deletelWishlist(String wishlistName);
 }
 

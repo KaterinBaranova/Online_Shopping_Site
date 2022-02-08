@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -20,13 +21,28 @@ public class CartHoverPage extends BasePage<CartHoverPage> {
     @FindBy(css = ".shopping_cart > a")
     private WebElement enableHoverElement;
 
-    public CartHoverPage() {
-        super("index.php?id_product=2&controller=product");
+    public CartHoverPage(WebDriver driver) {
+        super(driver,"index.php?id_product=2&controller=product");
     }
 
     @Override
     protected void isLoaded() throws Error {
 
+    }
+
+    @Override
+    public void open() {
+
+    }
+
+    @Override
+    public void login(String login, String password) {
+
+    }
+
+    @Override
+    public boolean deletelWishlist(String wishlistName) {
+        return false;
     }
 
     private WebElement getCartHoverItem(String productName) {

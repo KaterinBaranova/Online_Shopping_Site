@@ -6,14 +6,16 @@ import pages.ItemPage;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
+import static pages.ItemPage.ITEM_URL;
 
 public class CheckOutTest extends BaseTest {
     @Test
     public void changeQuantityInCartTest() {
-        ItemPage itemPage1 = new ItemPage().get();
+        ItemPage itemPage1 = new ItemPage(driver);
+        driver.get(ITEM_URL);
         itemPage1.clickAddToCart();
         itemPage1.closeCartFrame();
-        ItemPage itemPage2 = new ItemPage("index.php?id_product=2&controller=product").get();
+        ItemPage itemPage2 = new ItemPage(driver);
         itemPage2.clickAddToCart();
         CheckOutPage checkOutPage = itemPage2.clickCheckout();
         assertEquals(checkOutPage.getItemsInCart(), 2, "Incorrect number of items in cart");
@@ -26,7 +28,8 @@ public class CheckOutTest extends BaseTest {
 
     @Test
     public void removeLastItemFromCartTest() {
-        ItemPage itemPage = new ItemPage().get();
+        ItemPage itemPage = new ItemPage(driver);
+        driver.get(ITEM_URL);
         itemPage.clickAddToCart();
         CheckOutPage checkOutPage = itemPage.clickCheckout();
         checkOutPage.pressDecreaseQuantity("Printed Summer Dress");
@@ -35,7 +38,8 @@ public class CheckOutTest extends BaseTest {
 
     @Test
     public void buyItemsFromCartTest() {
-        ItemPage itemPage = new ItemPage().get();
+        ItemPage itemPage = new ItemPage(driver);
+        driver.get(ITEM_URL);
         itemPage.clickAddToCart();
         CheckOutPage checkOutPage = itemPage.clickCheckout();
         assertTrue(checkOutPage.purchase(), "Purchase process failed");
