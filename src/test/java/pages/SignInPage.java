@@ -1,9 +1,14 @@
 package pages;
 
+
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class SignInPage extends BasePage<SignInPage> {
+
+
+    public static final String SIGNIN_URL = "http://prestashop.qatestlab.com.ua/en/authentication?back=my-account";
 
     @FindBy(id = "email")
     private WebElement emailField;
@@ -27,14 +32,29 @@ public class SignInPage extends BasePage<SignInPage> {
     private WebElement wishListButton;
 
 
-    public SignInPage() {
-        super("http://prestashop.qatestlab.com.ua/en/authentication?back=my-account");
+    public SignInPage(WebDriver driver) {
+        super(driver,SIGNIN_URL);
     }
 
 
     @Override
     protected void isLoaded() throws Error {
 
+    }
+
+    @Override
+    public void open() {
+
+    }
+
+    @Override
+    public void login(String login, String password) {
+
+    }
+
+    @Override
+    public boolean deletelWishlist(String wishlistName) {
+        return false;
     }
 
     public void signInWithCredentials(String email, String password) {
@@ -69,6 +89,6 @@ public class SignInPage extends BasePage<SignInPage> {
     public WishlistPage openWishListPage() {
         getActions().click(wishListButton);
         getActions().isPageReady();
-        return new WishlistPage();
+        return new WishlistPage(driver);
     }
 }

@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class BaseTest {
 
-    public final static String LOGIN = "Kate@test.com";
+    public final static String LOGIN = "katsssru@gmail.com";
     public final static String PASSWORD = "Admin123";
     public static final String BASE_URL = "http://prestashop.qatestlab.com.ua/en/";
 

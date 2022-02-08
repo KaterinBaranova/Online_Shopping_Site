@@ -1,15 +1,13 @@
 package pages;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
 
 public class WishlistPage extends BasePage<WishlistPage> {
+
     @FindBy(xpath = "//*[@id=\"best-sellers_block_right\"]/div/ul/li[1]/a")
     private WebElement firstTopSellingItem;
 
@@ -22,13 +20,28 @@ public class WishlistPage extends BasePage<WishlistPage> {
     @FindBy(className = "table")
     private WebElement wishlistTable;
 
-    WishlistPage() {
-        super("index.php?fc=module&module=/module/blockwishlist/mywishlist");
+    public WishlistPage(WebDriver driver) {
+        super(driver,"http://prestashop.qatestlab.com.ua/en/module/blockwishlist/mywishlist");
     }
 
     @Override
     protected void isLoaded() throws Error {
 
+    }
+
+    @Override
+    public void open() {
+
+    }
+
+    @Override
+    public void login(String login, String password) {
+
+    }
+
+    @Override
+    public boolean deletelWishlist(String wishlistName) {
+        return false;
     }
 
     public void create(String wishlistName) {
@@ -66,7 +79,7 @@ public class WishlistPage extends BasePage<WishlistPage> {
     public ItemPage openFirstTopSellingItem() {
         getActions().click(firstTopSellingItem);
         getActions().isPageReady();
-        return new ItemPage();
+        return new ItemPage(driver);
     }
 
     enum Column {

@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -8,13 +9,13 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.List;
 
 public class ItemPage extends BasePage<ItemPage> {
-    @FindBy(className = "primary_block")
-    private WebElement itemSection;
+
+    public static final String ITEM_URL = "http://prestashop.qatestlab.com.ua/en/tshirts/1-faded-short-sleeve-tshirts.html";
 
     @FindBy(id = "layer_cart")
     private WebElement cartFrame;
 
-    @FindBy(css = "#add_to_cart > button > span")
+    @FindBy(id = "add_to_cart")
     private WebElement addToCartButton;
 
     @FindBy(css = "a[title='Proceed to checkout']")
@@ -51,12 +52,23 @@ public class ItemPage extends BasePage<ItemPage> {
     private WebElement closeCartFrame;
 
 
-    public ItemPage() {
-        super("index.php?id_product=5&controller=product");
+    public ItemPage(WebDriver driver) {
+        super(driver,ITEM_URL);
     }
 
-    public ItemPage(String url) {
-        super(url);
+    @Override
+    public void open() {
+
+    }
+
+    @Override
+    public void login(String login, String password) {
+
+    }
+
+    @Override
+    public boolean deletelWishlist(String wishlistName) {
+        return false;
     }
 
     public void clickAddToCart() {
@@ -133,8 +145,8 @@ public class ItemPage extends BasePage<ItemPage> {
 
     public CheckOutPage clickCheckout() {
         getActions().click(proceedToCheckoutButton);
-        CheckOutPage checkOutPage = new CheckOutPage();
+        CheckOutPage checkOutPage = new CheckOutPage(driver);
         checkOutPage.isLoaded();
-        return new CheckOutPage();
+        return checkOutPage;
     }
 }

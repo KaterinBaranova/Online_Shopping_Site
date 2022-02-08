@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -51,8 +52,8 @@ public class CheckOutPage extends BasePage<CheckOutPage> {
     @FindBy(id = "SubmitLogin")
     private WebElement signInButton;
 
-    public CheckOutPage() {
-        super("index.php?controller=order");
+    public CheckOutPage(WebDriver driver) {
+        super(driver, "index.php?controller=order");
     }
 
     public int getItemsInCart() {
@@ -104,6 +105,21 @@ public class CheckOutPage extends BasePage<CheckOutPage> {
         getActions().click(payBankWire);
         getActions().click(completeOrder);
         return successMessage.getText().contains("is complete");
+    }
+
+    @Override
+    public void open() {
+
+    }
+
+    @Override
+    public void login(String login, String password) {
+
+    }
+
+    @Override
+    public boolean deletelWishlist(String wishlistName) {
+        return false;
     }
 
     enum Column {
