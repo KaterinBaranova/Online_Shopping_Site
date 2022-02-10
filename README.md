@@ -55,5 +55,5 @@ https://github.com/KaterinBaranova/Online_Shopping_Site.git
 * WishlistTest
 
 # Our Team:
-*  QA Student: Katsiarya Shauliuk
+*  QA Student: Katsiaryna Shauliuk
 *  Mentor: Oleg Voropaev
