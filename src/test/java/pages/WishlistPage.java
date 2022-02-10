@@ -20,8 +20,11 @@ public class WishlistPage extends BasePage<WishlistPage> {
     @FindBy(className = "table")
     private WebElement wishlistTable;
 
+    @FindBy(className ="icon-remove")
+    private WebElement deleteWishlistItem;
+
     public WishlistPage(WebDriver driver) {
-        super(driver,"http://prestashop.qatestlab.com.ua/en/module/blockwishlist/mywishlist");
+        super(driver,"index.php?fc=module&module=/module/blockwishlist/mywishlist");
     }
 
     @Override
@@ -54,13 +57,8 @@ public class WishlistPage extends BasePage<WishlistPage> {
         return getCell(wishlistName, Column.NAME) != null;
     }
 
-    public boolean deleteWishlist(String wishlistName) {
-        getActions().isElementDisplayed(wishlistTable);
-        WebElement wishlistDeleteButton = getCell(wishlistName, Column.DELETE);
-        wishlistDeleteButton.findElement(By.className("icon-remove")).click();
-        Alert popup = getActions().switchToAlert();
-        popup.accept();
-        return getActions().isElementNotDisplayed(wishlistDeleteButton);
+    public void clickDeleteToWishlist() {
+        getActions().click(deleteWishlistItem);
     }
 
     private WebElement getCell(String wishlistName, Column columnName) {
