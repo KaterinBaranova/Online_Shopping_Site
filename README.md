@@ -1,51 +1,59 @@
-# Online_Shopping_Site
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+<img width="595" alt="Screenshot 2022-02-10 at 18 43 35" src="https://user-images.githubusercontent.com/89603016/153443120-79276ef8-385e-4dcc-a316-763dcbf777e8.png">
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+# Online_Shopping_Site Diploma #
 http://prestashop.qatestlab.com.ua/en/ is an end-end e-commerce website.
 
-Following tools were used in this framework:
-Maven, TestNG, Selenium WebDriver,Circle CI, Allure Reporting Framework,Log4j.
+## Overview: ##
 
-All automation is done in Java.
+> Is is an end-end e-commerce website. It covers the complete online shopping workflow. So there is lot of back and forth between server and client, lots of validations built into it to give you a complete experience to practice the scenarios you might find in real time projects.
 
-Checklist:
+## Clone the repository into your projects directory: ##
 
-Sign In:
+https://github.com/KaterinBaranova/Online_Shopping_Site.git
 
-Verify that user can login with valid credentials.
+## Installation: ##
 
-Verify that user is not able to login with Empty Login and valid Password.
+* IDE: IntelliJ
+* Programming Language:  JAVA
+* Project Type:  Maven
 
-Verify that user is not able to login with valid Login and empty Password.
+## Frameworks: ##
+* Selenium
+* TestNG
+* lombok
+* Test listener
 
-Verify that user is not able to login with invalid credentials.
+## Design Patterns used:
+* POM (Page Object Module)
 
-Verify that user is able to logout.
+## Reporting:
+* Allure reporting
 
-WishList:
+## Global Usage:
+* GitHub
+* CircleCI
 
-Verify that user is able to create a wishlist.
+## Project structure:
 
-Verify that user is able to update the wishlist.
+### pages
+* BasePage
+* CartHoverPage
+* CheckOutPage
+* ItemPage
+* SignInPage
+* WishlistPage
 
-Verify that user is able to delete the wishlist.
+### tests
+* BaseTest
+* CartHoverTest
+* CheckOutTest
+* ItemTest
+* SignInTest
+* WishlistTest
 
-Cart Hover:
-
-Verify that cart hover display the correct quantity of items in cart.
-
-Verify that user is able to remove items in cart in the cart hover.
-
-Item:
-
-Verify that user is able to add item to cart.
-
-Verify that user is able to add several items to cart.
-
-Verify that user is able to select item color
-
-Checkout:
-
-Verify that user is able to buy items from cart.
-
-Verify that user is able to change quantity of items in cart.
-
-Verify that user is able to remove items from cart
+# Our Team:
+*  QA Student: Katsiarya Shauliuk
+*  Mentor: Oleg Voropaev
