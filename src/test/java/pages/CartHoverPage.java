@@ -21,6 +21,9 @@ public class CartHoverPage extends BasePage<CartHoverPage> {
     @FindBy(css = ".shopping_cart > a")
     private WebElement enableHoverElement;
 
+    @FindBy(className ="remove_link")
+    private WebElement removeFromHover;
+
     public CartHoverPage(WebDriver driver) {
         super(driver,"index.php?id_product=2&controller=product");
     }
@@ -73,5 +76,9 @@ public class CartHoverPage extends BasePage<CartHoverPage> {
     public void checkOut() {
         getActions().hover().moveToElement(enableHoverElement).build().perform();
         getActions().click(checkOutButton);
+    }
+
+    public void removeFromHover() {
+        getActions().click(removeFromHover);
     }
 }

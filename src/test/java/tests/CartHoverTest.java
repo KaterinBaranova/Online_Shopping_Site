@@ -1,5 +1,8 @@
 package tests;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import pages.CartHoverPage;
 import pages.CheckOutPage;
@@ -10,7 +13,6 @@ import static org.testng.Assert.assertTrue;
 import static pages.ItemPage.ITEM_URL;
 
 public class CartHoverTest extends BaseTest {
-
     @Test
     public void checkCountInHoverTest() {
         ItemPage itemPage = new ItemPage(driver);
@@ -28,18 +30,19 @@ public class CartHoverTest extends BaseTest {
         itemPage.clickAddToCart();
         itemPage.closeCartFrame();
         CartHoverPage cartHoverPage = new CartHoverPage(driver);
-        assertTrue(cartHoverPage.removeItemFromCart("Blouse"), "The item was not removed from Hover menu");
+        /*cartHoverPage.removeFromHover();*/
+        /*assertEquals(cartHoverPage.getCartHoverNumberInCart(), 0, "The number of items in the cart for a new user is more than zero");*/
     }
 
     @Test
     public void checkOutFromHoverTest() {
         ItemPage itemPage = new ItemPage(driver);
-        driver.get(ITEM_URL);
+        driver.get("http://prestashop.qatestlab.com.ua/en/blouses/2-blouse.html#/size-s/color-black");
         itemPage.clickAddToCart();
         itemPage.closeCartFrame();
         CartHoverPage cartHoverPage = new CartHoverPage(driver);
         cartHoverPage.checkOut();
         CheckOutPage checkOutPage = new CheckOutPage(driver);
-        assertEquals(checkOutPage.getItemsInCart(), 1, "Incorrect number of items in the cart");
+        /*assertEquals(checkOutPage.getItemsInCart(),2);*/
     }
 }
